@@ -1,0 +1,2 @@
+deploy flask application using this.
+uwsgi + nginx

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>File Uploader</title>
+</head>
+<body>
+	<div>
+		<form method="post" action="{{url_for('upload')}}" enctype=multipart/form-data>
+			<input type="file" name="file">
+			<button type="submit" class="btn btn-primary" style="width:120px;">Upload</button>
+            <button type="reset" class="btn btn-default" style="width:120px;">Clear</button>
+		</form>
+	</div>
+	<div>
+		{% with msgs = get_flashed_messages() %}
+    {% if msgs %}
+      {%- for msg in msgs %}
+        <div class="alert alert-info">
+          {{ msg }}
+        </div>
+      {% endfor -%}
+    {% endif %}
+  {% endwith %}
+  
+  {% block body %} {% endblock %}
+	</div>
+      
+</body>
+</html>
